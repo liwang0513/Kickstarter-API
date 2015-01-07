@@ -23,6 +23,29 @@ var routes = {
 	
 	"/categories"(req, res, next) {
 		
+		request.get(`${base}/discover`, function(err, response, body) {
+				
+			var $ = cheerio.load(body);
+			
+			// get all categories as list
+			var classes = $("div.category-container a").map(function() {
+				return $(this).attr("class");
+			}).get();
+			
+			classes = classes.reduce(function(all, item) {
+				
+				var id = +item.match(/category-(\d+)/)[1];
+				var name = item.match(/hover-bg-color-(\w+)/)[1];
+				
+				all[name] = id;
+				
+				return all;
+				
+			}, {});
+			
+			res.json(classes);
+			
+		});
 		
 	}
 };
