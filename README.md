@@ -1,4 +1,4 @@
-Were gonna make an API out of Kickstarter.com by scraping their AJAX calls. Were gonna use NodeJS with the help of our framework called Cornerstore. 
+I was gonna make an API out of Kickstarter.com by scraping their AJAX calls. Were gonna use NodeJS with the help of our framework called Cornerstore. 
 
 Npm install -g cs to get the framework. 
 Then you can cs init {{project}}
